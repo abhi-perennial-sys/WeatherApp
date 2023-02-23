@@ -11,7 +11,10 @@ have the history.
 Tech Stack:
 -----------
 Architecture used: MVVM
+
 Android studio version: Electric Eel | 2022.1.1
+
 Programming language: Kotlin
+
 Device supports: Api level 21 and above
 
