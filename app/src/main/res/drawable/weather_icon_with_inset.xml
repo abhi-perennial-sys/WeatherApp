@@ -1,0 +1,6 @@
+<inset android:drawable="@drawable/weather_icon"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:insetTop="100dp"
+    android:insetBottom="100dp"
+    android:insetRight="100dp"
+    android:insetLeft="100dp"/>

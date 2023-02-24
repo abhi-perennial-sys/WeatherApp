@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.weatherapp.viewmodels.LoginViewModel" />
+
+        <import type="android.view.View"/>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="20sp"
+        tools:context=".ui.fragments.LoginFragment">
+
+        <ImageView
+            android:id="@+id/appIcon"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/weather_icon"
+            app:layout_constraintBottom_toTopOf="@+id/login_into_account_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/login_into_account_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Create an account"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/nameLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appIcon" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/nameLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:hint="Name"
+            app:errorEnabled="true"
+            app:errorIconDrawable="@null"
+            app:error="@{viewModel.nameError}"
+            app:layout_constraintBottom_toTopOf="@+id/usernameLayout"
+            app:layout_constraintTop_toBottomOf="@+id/login_into_account_text"
+            app:startIconDrawable="@drawable/baseline_person_24">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:id="@+id/name"
+                android:inputType="text"
+                android:maxLines="1" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/usernameLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Username"
+            app:errorEnabled="true"
+            app:errorIconDrawable="@null"
+            app:error="@{viewModel.usernameError}"
+            app:layout_constraintBottom_toTopOf="@+id/pwdLayout"
+            app:layout_constraintTop_toBottomOf="@+id/nameLayout"
+            app:startIconDrawable="@drawable/round_email_24"
+            android:layout_marginTop="5dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:id="@+id/username"
+                android:inputType="text"
+                android:maxLines="1" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/pwdLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            app:errorEnabled="true"
+            app:layout_constraintBottom_toTopOf="@+id/signupButton"
+            app:layout_constraintTop_toBottomOf="@+id/usernameLayout"
+            app:passwordToggleEnabled="true"
+            app:errorIconDrawable="@null"
+            app:error="@{viewModel.pwdError}"
+            app:startIconDrawable="@drawable/round_lock_24"
+            android:layout_marginTop="5dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:id="@+id/password"
+                android:inputType="textPassword"
+                android:maxLines="1" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/signupButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="Create Account"
+            android:textAllCaps="false"
+            android:insetBottom="0dp"
+            android:insetTop="0dp"
+            android:enabled="@{viewModel.isButtonEnabled}"
+            app:layout_constraintBottom_toTopOf="@+id/dontHaveAccount"
+            app:layout_constraintTop_toBottomOf="@+id/pwdLayout"
+            tools:layout_editor_absoluteX="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/dontHaveAccount"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="12dp"
+            android:text="Already have an account? Login"
+            app:layout_constraintTop_toBottomOf="@id/signupButton"
+            app:layout_constraintBottom_toTopOf="@id/loader"/>
+
+        <ProgressBar
+            android:id="@+id/loader"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:indeterminate="true"
+            android:layout_marginTop="8dp"
+            android:visibility="@{viewModel.loader ? View.VISIBLE : View.GONE}"
+            android:indeterminateTint="@color/purple_500"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dontHaveAccount" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

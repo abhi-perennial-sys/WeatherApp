@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">WeatherApp</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="forgot_pwd">Forgot Password?</string>
+    <string name="dont_have_account">Don\'t have an account? Register</string>
+    <string name="already_have_acc">Already have an account? Login</string>
+
+    <integer name="dont_have_acc_start">23</integer>
+    <integer name="dont_have_acc_end">31</integer>
+    <integer name="login_start_index">25</integer>
+    <integer name="login_end_index">30</integer>
 </resources>
