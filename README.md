@@ -48,3 +48,7 @@ Wrote testcases for ViewModels(LoginViewModel, HomeViewModel), DAO's(UserDao, We
 App Screens
 -------------
 
+
+Note
+-----
+Being only contributor i have commited all my codes in master branch
