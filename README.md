@@ -28,4 +28,23 @@ Project Structure
 6) ui: This folder contains all the activities and fragments
 7) utils: This folder contains utility classes
 8) viewmodels: This folder contains all the viewModels
+9) di: This folder contains dependency injection classes
+
+
+Security
+---------
+Room Database is protected using SQL Cipher
+
+API_KEY path
+-------------
+Update your OpernWeather Api key to "local.properties" file for key name "API_KEY"
+
+Unit Test
+---------
+Wrote testcases for ViewModels(LoginViewModel, HomeViewModel), DAO's(UserDao, WeatherDao) and Repositories(LoginRepository, HomeRepository) with test coverage above 90%
+
+<img width="473" alt="full" src="https://user-images.githubusercontent.com/126142203/221539309-6544680d-0495-4aec-ac9f-97210e35e7c4.png">
+
+App Screens
+-------------
 
